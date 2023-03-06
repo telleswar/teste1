@@ -9,8 +9,8 @@
         }
 
         .card {
-            min-width: 300px;
-            max-width: 300px;
+            min-width: 280px;
+            max-width: 280px;
             overflow: hidden;
             margin-bottom: 25px;
         }
@@ -28,7 +28,7 @@
 
         <div class="row text-center">
             @foreach ($Pedidos as $pedido)
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 d-flex ms-sm-0 ms-2 align-items-stretch ">
+                <div class="col-xl-3 col-xs-4 col-lg-4 col-md-6 col-sm-12 col-12 d-flex ms-sm-0 ms-2 align-items-stretch justify-content-center ">
                     <div class="card bg-dark">
                         <div class="card-header">
                             <h2>Pedido: {{$pedido->numero}} | {{$pedido->cliente->nome}} | {{ \Carbon\Carbon::parse($pedido->data_entrega)->format('d/m/Y')}}</h2>
