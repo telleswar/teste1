@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
 @section('content')
     <div class="container">
@@ -39,26 +39,6 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-0 offset-md-4">
-                            <div class="form-check align-items-start">
-                                <input class="form-check-input" type="radio" name="rdBtnTipo" id="rdPj"
-                                    value="1">
-                                <label class="form-check-label" for="rdPj">
-                                    {{ __('Pessoa jurídica') }}
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="row mb-2 offset-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rdBtnTipo" id="rdPf"
-                                    value="0" checked>
-                                <label class="form-check-label" for="rdPf">
-                                    {{ __('Pessoa física') }}
-                                </label>
                             </div>
                         </div>
 

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Cineblu') }} @yield('nome_pagina')</title>
+    <title>@yield('nome_pagina')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -64,20 +64,18 @@
     @yield('head')
 </head>
 
-<body class="bg-dark">
+<body class="bg-gradient-light">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-gradient-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                        class="bi bi-ticket-perforated" viewBox="0 0 16 16">
-                        <path
-                            d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z" />
-                        <path
-                            d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
                     </svg>
-                    {{ config('app.name', 'Cineblu') }} @yield('nome_pagina')
                 </a>
+
+                <div class="mx-auto">@yield('nome_pagina')</div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -89,6 +87,7 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -106,18 +105,27 @@
                                         <path
                                             d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z" />
                                     </svg>
-                                    Visitante
+                                    Deslogado
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    @if (Route::has('login'))
-                                        <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                    @endif
-                                    @if (Route::has('login'))
-                                        <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    @endif
-                                </div>
                             </li>
                         @else
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Produto</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Estoque</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cliente</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Financeiro</a>
+                        </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -131,16 +139,6 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    @if (Auth::user()->isPj)
-                                        <a class="dropdown-item"
-                                            href="{{ route('cinemas.ver') }}">{{ __('Cinemas') }}</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('filmes.ver') }}">{{ __('Filmes') }}</a>
-                                    @else
-                                        <a class="dropdown-item"
-                                            href="{{ route('recibos.ver') }}">{{ __('Suas compras') }}</a>
-                                    @endif
-
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -176,7 +174,7 @@
     <footer class="flooter d-flex-reverse mx-auto card-header">
         <div class="container d-block">
             <div class="row d-block  text-center">
-                Desenvolvido por Antony Rairon
+                Desenvolvido por Antony Rairon & Leandro Marqueti
             </div>
         </div>
     </footer>
