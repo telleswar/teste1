@@ -27,7 +27,7 @@
             width: 400 !important;
         }
 
-        select, option, input,.dropdown-item{
+        select, option, input,.dropdown-item,.nav-link{
             color: white !important;
         }
         small {
@@ -36,20 +36,27 @@
 
         body {
             min-height: 100vh !important;
-            background: rgb(23, 43, 47) !important;
-            background-image: linear-gradient(90deg, rgba(23, 43, 47, 1) 100%, rgba(22, 45, 50, 1) 100%, rgba(13, 74, 87, 1) 100%) !important;
+            background: #fef6ed !important;
             background-size: cover !important;
         }
 
+        hr,h3{
+            color: #dc748d;
+        }
+
+        .nav > li > a:hover{
+            background-color:#d57891;
+        }
+
         .dropdown-item:hover {
-            background: rgba(0, 0, 0, 0.72) !important;
+            background: #d57891 !important;
         }
 
         .card-header,
         .card-footer,
         .navbar,
         thead {
-            background: rgba(0, 0, 0, 0.72) !important;
+            background: #dc748d !important;
         }
 
         .card-body,
@@ -57,8 +64,8 @@
         .form-control,
         .form-select,
         .dropdown-menu,
-        .sessoes{
-            background: rgba(0, 0, 0, 0.63) !important;
+        .submenu {
+            background: #ff8fad !important;
         }
     </style>
     @yield('head')
@@ -109,23 +116,6 @@
                                 </a>
                             </li>
                         @else
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Produto</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Estoque</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cliente</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Financeiro</a>
-                        </li>
-
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -152,9 +142,28 @@
                             </li>
                         @endguest
                     </ul>
+
                 </div>
             </div>
         </nav>
+
+        <ul class="nav justify-content-center submenu">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Produto</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Estoque</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cliente</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Financeiro</a>
+            </li>
+          </ul>
 
         <main class="py-4">
             @yield('content')
@@ -171,7 +180,7 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
 
-    <footer class="flooter d-flex-reverse mx-auto card-header">
+    <footer class="flooter d-flex-reverse mx-auto card-header fixed-bottom teste">
         <div class="container d-block">
             <div class="row d-block  text-center">
                 Desenvolvido por Antony Rairon & Leandro Marqueti
