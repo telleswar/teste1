@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
 Route::get('/home',[HomeController::class, 'index'])->middleware('auth');
+Route::get('/alterar-senha',[HomeController::class, 'editSenha'])->middleware('auth')->name('auth.edit');
 
 //Clientes
 Route::get('/clientes',[ClienteController::class,'index'])->name('clientes.index');
